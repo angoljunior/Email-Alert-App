@@ -1,0 +1,161 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
+
+      <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="{% static 'css/job_alert.css' %}">
+    <title>Responsive Portofolio</title>
+</head>
+<body>
+
+ <!--  ========================CONTACT============================== -->
+ <section class="contact section" id="contact">
+
+    <div class="logout_user" id="logout-user">
+
+        <a href="{% url 'logout_user' %}" class="logout_user_text">Logout</a>
+
+    </div>
+
+    <div class="container contact__container">
+        <div class="contact__data">
+            <h2 class="section__title-2">
+                <span>Create an email Alert</span>
+            </h2>
+
+            <p class="contact__description-1">
+                I will read all emails. Send me any 
+                message you want and I'll get back to you.  
+            </p>
+
+            <p class="contact__description-2">
+                I need your Alert, but 
+                you won't receive anything other than your reply.
+            </p>
+
+            <div class="geometric-box"></div>
+        </div>
+
+        <div class="contact__mail">
+            <h2 class="contact__title">
+                Be Part of our mailing List
+                {% for message in messages %}
+
+                <p>{{ message }}</p>
+                
+            {% endfor %}
+        
+            </h2>
+
+            
+  <form action="" class="contact__form" id="contact-form" method="POST">
+    <div class="contact__group">
+        {% csrf_token %}
+        <div class="contact__box">
+            <input type="text" class="contact__input" id="user_name" required placeholder="User Name"  value="{{ request.user }}">
+            <label for="name" class="contact__label">Username </label>
+        </div>
+
+        <div class="contact__box">
+            <input type="text" class="contact__input" id="user"  name="job_name" required placeholder="Job Name">
+            <label for="name" class="contact__label">Job Name</label>
+        </div>
+
+        <div class="contact__box">
+            <input type="text" class="contact__input"  name="job_location" required placeholder="Job Location">
+            <label for="name" class="contact__label">Job Location</label>
+        </div>
+
+        <button  type="submit" class="contact__button button">
+            <i class="ri-send-plane-fill"></i>
+            Subscribe
+        </button>
+    </div>
+</form>
+
+</div>
+
+        </div>
+
+        <div class="contact__social">
+            <img src="images/curved-arrow.svg" alt="" class="contact__social-arrow">
+
+            <div class="contact__social-data">
+                <div>
+                <p class="contact__social-description-1">
+                    Does not send emails
+                </p>
+
+                <p class="contact__social-description-2">
+                    Write me on my social networks 
+                </p>
+            </div>
+
+            <div class="contact__social-links">
+                <a href="https://www.twitter.com/ " target="_blank" class="contact__social-link">
+                    <i class="ri-twitter-x-line"></i>
+                </a>
+
+                <a href="https://www.instagram.com/" target="_blank" class="contact__social-link">
+                    <i class="ri-instagram-line"></i>
+                </a>
+
+                <a href="https://www.facebook.com/" target="_blank" class="contact__social-link">
+                    <i class="ri-facebook-circle-line"></i>
+                </a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+ </section>
+   </div>
+
+ <!--   =======================FOOTER======================= -->
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <ul class="footer__links">
+                <li>
+                    <a href="#about" class="footer__link">About</a>
+                </li>
+                
+                <li>
+                    <a href="#services" class="footer__link">Services</a>
+                </li>
+                
+                <li>
+                    <a href="#projects" class="footer__link">Projects</a>
+                </li>
+            </ul>
+
+            <span class="footer__copy">
+                &#169; All RIghts Reserved by
+                <a href="">A.J GRAPHICS</a>
+            </span>
+        </div>
+    </footer>
+
+   <!--  =======================SCROLL UP============================
+ -->
+ <a href="" class="scrollup" id="scrollup">
+    <i class="ri-arrow-up-line"></i>
+ </a>
+
+<!-- =================SCROLL REVEAL MIN JS=================== -->
+<script src="js/scrollreveal.min.js"></script>
+
+
+   <!--  ========================EMAIL JS=================== -->
+
+  <!--  ==================SCRIPT JS================= -->
+    <script src="js/script.js"></script>
+</body>
+</html>
